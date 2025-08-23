@@ -9,8 +9,7 @@ const testConnection = async () => {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      charset: 'utf8mb4',
-      collation: 'utf8mb4_unicode_ci'
+      charset: 'utf8mb4'
     });
     
     await connection.execute('SELECT 1');

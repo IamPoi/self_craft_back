@@ -247,7 +247,12 @@ module.exports = async (req, res) => {
     return res.status(500).json({
       success: false,
       error: '서버 오류가 발생했습니다.',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      details: error.message, // 항상 오류 메시지 표시 (디버깅용)
+      env_debug: {
+        DB_HOST: !!process.env.DB_HOST,
+        DB_NAME: !!process.env.DB_NAME,
+        DB_USER: !!process.env.DB_USER
+      }
     });
   }
 };
